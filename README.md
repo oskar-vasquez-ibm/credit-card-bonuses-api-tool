@@ -22,3 +22,8 @@ Filter by bank: `http://localhost:8000/cards?bank=Chase`
 Filter by min bonus: `http://localhost:8000/cards?min_bonus=500`
 
 Multiple filters: `http://localhost:8000/cards?bank=Chase&min_bonus=500&category=Travel`
+
+
+## OpenAPI Tool on Orchestrate
+
+A watsonx Orchestrate-compatible tool is included ("openapi.yml"), this tool can be used on Watsonx Orchestrate to hand-off querying to an AI Agent
