@@ -1,5 +1,6 @@
 from fastapi import FastAPI, Query
 import requests
+from typing import List, Dict
 
 app = FastAPI(title="Credit Card Bonuses API Tool")
 
