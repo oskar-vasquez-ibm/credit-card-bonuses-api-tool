@@ -1,0 +1,54 @@
+openapi: 3.0.0
+info:
+  title: Credit Card Bonuses API Tool
+  version: 1.0.0
+servers:
+  - url: https://<your-public-url>
+paths:
+  /cards:
+    get:
+      summary: Get credit card offers with optional filters
+      parameters:
+        - name: bank
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: category
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: min_bonus
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: max_bonus
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: name
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    issuer:
+                      type: string
+                    category:
+                      type: string
+                    bonus_amount:
+                      type: integer
