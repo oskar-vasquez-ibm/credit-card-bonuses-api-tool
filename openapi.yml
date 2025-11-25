@@ -2,41 +2,55 @@ openapi: 3.0.0
 info:
   title: Credit Card Bonuses API Tool
   version: 1.0.0
+  description: >
+    FastAPI tool serving credit card bonus offers from GitHub.
+    Supports multiple query filters: bank, category, min_bonus, max_bonus, and card name.
 servers:
-  - url: https://<your-public-url>
+  - url: https://credit-card-bonuses-api-tool.onrender.com
 paths:
   /cards:
     get:
       summary: Get credit card offers with optional filters
+      description: Retrieve credit card offers. Only parameters that differ from default values are applied as filters.
       parameters:
         - name: bank
           in: query
           required: false
+          description: "Bank or issuer name. Partial matches allowed. Examples: Chase, Citi, American Express."
           schema:
             type: string
+            default: ""
         - name: category
           in: query
           required: false
+          description: "Category of the credit card offer. Partial matches allowed. Examples: Travel, Cash Back, Business, Rewards."
           schema:
             type: string
+            default: ""
         - name: min_bonus
           in: query
           required: false
+          description: "Minimum bonus amount in dollars. Example: 200"
           schema:
             type: integer
+            default: 0
         - name: max_bonus
           in: query
           required: false
+          description: "Maximum bonus amount in dollars. Example: 10000"
           schema:
             type: integer
+            default: 10000
         - name: name
           in: query
           required: false
+          description: "Name of the credit card. Partial matches allowed. Examples: Chase Sapphire Preferred, Citi Premier Card."
           schema:
             type: string
+            default: ""
       responses:
         '200':
-          description: Successful response
+          description: Successful response with a list of credit card offers
           content:
             application/json:
               schema:
@@ -46,9 +60,17 @@ paths:
                   properties:
                     name:
                       type: string
+                      description: Card name
+                      example: "Chase Sapphire Preferred"
                     issuer:
                       type: string
+                      description: Card issuer/bank
+                      example: "Chase"
                     category:
                       type: string
+                      description: Card category
+                      example: "Travel"
                     bonus_amount:
                       type: integer
+                      description: Sign-up bonus amount in dollars
+                      example: 600
