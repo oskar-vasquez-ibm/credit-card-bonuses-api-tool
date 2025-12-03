@@ -1,6 +1,6 @@
 # Credit Card Bonuses API Tool
 
-This is a FastAPI application that serves credit card bonus offers from a GitHub dataset. 
+This is a FastAPI application that serves credit card bonus offers from a GitHub dataset (hosted at https://raw.githubusercontent.com/andenacitelli/credit-card-bonuses-api/main/exports/data.json). 
 It supports multiple query filters (bank, category, min_bonus, max_bonus, and card name).
 
 ## Run Locally
